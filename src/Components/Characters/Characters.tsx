@@ -1,10 +1,11 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, FC } from 'react';
 import {CardList} from './Card';
 
-const Characters = () => {
+const Characters:FC = () => {
     const [value,setValue] = useState<Array<any>>([]);
-    const [loading,setLoading] = useState<boolean>(false)
+    const [loading,setLoading] = useState<boolean>(false);
+
 
 
     const fetchChar = () => {
@@ -16,13 +17,12 @@ const Characters = () => {
     useEffect(() => {
         fetchChar()
     },[])
-
-    // console.log(value)
+    
     return (
         <div className='container content'>
             <div className='movies'>
                 {value.length ? (
-                    value.map((movie) => <CardList key={movie.imdbID} {...movie} />)
+                    value.map((movie) => <CardList key={movie.id} {...movie} />)
                 ) : (
                     <h4>Nothing found</h4>
                 )}

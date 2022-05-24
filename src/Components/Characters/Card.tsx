@@ -1,9 +1,9 @@
 import React from 'react';
-import CardProps from '../../Types/type';
+import CardPropsCh from '../../Types/type';
 import {CardGroup} from 'react-bootstrap'
 import {Card} from 'react-bootstrap'
 
-const CardList : React.FC<CardProps> = (props) => {
+const CardList : React.FC<CardPropsCh> = (props) => {
 const { char_id : id,
         name,
         birthday,
@@ -15,15 +15,18 @@ const { char_id : id,
    
     return (
         <CardGroup>
-            <Card id={id}>
+            <Card key={id}>
                 <Card.Img style={{height: '400px'}} variant="bottom" src={img} />
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>
-                       {birthday}
-                       {status}
-                       {nickname}
-                       {category}
+                       Birthday : {birthday}
+                       <br/>
+                       Status : {status}
+                       <br/>
+                       Nickname : {nickname}
+                       <br/>
+                       Category : {category}
                     </Card.Text>
                 </Card.Body>
             </Card>
