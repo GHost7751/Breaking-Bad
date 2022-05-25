@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {CardEp} from './CardEp';
+import Spinner from '../../Layout/Spinner';
 
 const Characters = () => {
     const [value,setValue] = useState<Array<any>>([]);
@@ -21,9 +22,11 @@ const Characters = () => {
             <div className='movies'>
                 {value.length ? (
                     value.map((movie) => <CardEp key={movie.id} {...movie} />)
-                ) : (
-                    <h4>Nothing found</h4>
-                )}
+                ) : 
+                <div className='spinner'>
+                    <Spinner />
+                </div>
+                }
             </div>
 
         </div>

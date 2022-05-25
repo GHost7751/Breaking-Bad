@@ -11,7 +11,7 @@ export default interface CardPropsCh {
 export default interface CardPropsEp {
          episode_id: number,
          title: string,
-         season: string | number | Array<any>,
+         season: string ,
          air_date : string,
          characters : Array<any>,
          episode : string,

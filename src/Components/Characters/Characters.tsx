@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState, FC } from 'react';
+import Spinner from '../../Layout/Spinner';
 import {CardList} from './Card';
 
 const Characters:FC = () => {
@@ -24,7 +25,7 @@ const Characters:FC = () => {
                 {value.length ? (
                     value.map((movie) => <CardList key={movie.id} {...movie} />)
                 ) : (
-                    <h4>Nothing found</h4>
+                   <Spinner />
                 )}
             </div>
 
