@@ -39,7 +39,12 @@ nav {
     padding: 0 1rem;
 }
 
-
+.pagination{
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  margin: 15px;
+}
 
   .movies {
       display: grid;

@@ -17,3 +17,10 @@ export default interface CardPropsEp {
          episode : string,
          series : string,
 }
+
+export default interface InterfaceProps {
+    prevPage: () => void,
+    setPage: (page: number) => void,
+    page: number;
+    nextPage: () => void;
+}

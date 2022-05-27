@@ -16,7 +16,7 @@ const { char_id : id,
     return (
         <CardGroup>
             <Card key={id}>
-                <Card.Img style={{height: '400px'}} variant="bottom" src={img} />
+                <Card.Img style={{height: '350px'}} variant="bottom" src={img} />
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <Card.Text>
