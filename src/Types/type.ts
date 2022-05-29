@@ -24,3 +24,9 @@ export default interface InterfaceProps {
     page: number;
     nextPage: () => void;
 }
+
+export default interface InterfaceQuoteProps{
+    quote : string,
+    author : string,
+    series : string
+}

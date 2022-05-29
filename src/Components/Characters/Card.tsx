@@ -1,7 +1,8 @@
 import React from 'react';
 import CardPropsCh from '../../Types/type';
-import {CardGroup} from 'react-bootstrap'
+import {Button, CardGroup} from 'react-bootstrap'
 import {Card} from 'react-bootstrap'
+
 
 const CardList : React.FC<CardPropsCh> = (props) => {
 const { char_id : id,
@@ -12,6 +13,8 @@ const { char_id : id,
         nickname,
         category,
 } = props;
+
+
    
     return (
         <CardGroup>
@@ -28,6 +31,7 @@ const { char_id : id,
                        <br/>
                        Category : {category}
                     </Card.Text>
+                
                 </Card.Body>
             </Card>
         </CardGroup>

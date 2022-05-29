@@ -8,6 +8,7 @@ import { Button } from 'react-bootstrap';
 const Characters:FC = () => {
     const [value,setValue] = useState<Array<any>>([]);
     const [loading,setLoading] = useState<boolean>(false);
+    
 
     const {
         firstContentIndex,
@@ -31,7 +32,6 @@ const Characters:FC = () => {
     useEffect(() => {
         fetchChar()
     },[])
-    console.log(value.length)
     return (
         <div className='container content'>
             <div className='movies'>

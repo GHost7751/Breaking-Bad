@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Characters from './Components/Characters/Characters';
 import Episodes from './Components/Episodes/Episodes';
 import Home from './Components/Home/Home';
+import { Quotes } from './Components/Quotes/Quotes';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <main>
       <Routes>
               <Route  path='/' element={<Home />} />
+              <Route  path='/quotes' element={<Quotes />} />
               <Route  path='/home' element={<Home />} />
               <Route  path='/characters' element={<Characters />} />
               <Route path='/episodes' element={<Episodes />} />
