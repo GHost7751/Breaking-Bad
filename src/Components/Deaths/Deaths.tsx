@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import {CardEp} from './CardEp';
+import React,{FC,useState, useEffect } from 'react';
+import { Button } from 'react-bootstrap';
 import Spinner from '../../Layout/Spinner/Spinner';
 import { usePagination } from '../Pagination/usePagintain';
-import { Button } from 'react-bootstrap';
+import { DeathsCard } from './DeathsCard';
 
-const Characters = () => {
+const Deaths:FC = () => {
     const [value,setValue] = useState<Array<any>>([]);
     const [loading,setLoading] = useState<boolean>(false);
+
 
     const {
         firstContentIndex,
@@ -21,30 +22,33 @@ const Characters = () => {
         count: value.length,
       });
 
-    const fetchChar = () => {
+      const fetchDeaths = () : void => {
         setLoading(true)
-        fetch(`https://breakingbadapi.com/api/episodes`)
+        fetch(`https://breakingbadapi.com/api/deaths`)
         .then((response) => response.json())
         .then((data) => setValue(data))
-    }
-    useEffect(() => {
-        fetchChar()
-    },[])
-    
+      }
+
+      useEffect(() => {
+          fetchDeaths()
+      },[])
+
     return (
         <div className='container content'>
-            <br />
-            <div className='movies'>
-                {value.length ? (value
-                    .slice(firstContentIndex, lastContentIndex)
-                    .map((movie) => <CardEp key={movie.id} {...movie} />)
+        <br />
+        <div className='movies'>
+            
+            {value.length ? (value
+                .slice(firstContentIndex, lastContentIndex)
+                .map((deaths) => <DeathsCard key={deaths.id} {...deaths} />)
 
-                ) : (
-                    <Spinner />
-                )
+            ) : (
+                <Spinner />
+            )
+               
+            }
 
-                }
-            </div>
+         </div>
             <div className="pagination">
                 <Button onClick={prevPage} className="page">
                     &larr;
@@ -65,9 +69,8 @@ const Characters = () => {
                     &rarr;
                 </Button>
             </div>
-
-        </div>
+    </div>
     );
 };
 
-export default Characters;
+export  {Deaths};

@@ -15,6 +15,7 @@ const Header = () => {
             <Link to="/characters"><Nav.Link href="#characters">Characters</Nav.Link></Link>
             <Link to="/episodes"><Nav.Link href="#episodes">Episodes</Nav.Link></Link>
             <Link to="/quotes"><Nav.Link href="#quotes">Quotes</Nav.Link></Link>
+            <Link to="/deaths"><Nav.Link href="#deaths">Deaths</Nav.Link></Link>
             </Nav>
     </Container>
   </Navbar>

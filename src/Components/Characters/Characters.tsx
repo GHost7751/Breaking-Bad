@@ -34,6 +34,7 @@ const Characters:FC = () => {
     },[])
     return (
         <div className='container content'>
+            <br />
             <div className='movies'>
                 
                 {value.length ? (value
