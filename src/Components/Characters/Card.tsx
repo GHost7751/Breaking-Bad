@@ -1,6 +1,6 @@
 import React from 'react';
 import CardPropsCh from '../../Types/type';
-import {Button, CardGroup} from 'react-bootstrap'
+import {CardGroup} from 'react-bootstrap'
 import {Card} from 'react-bootstrap'
 
 

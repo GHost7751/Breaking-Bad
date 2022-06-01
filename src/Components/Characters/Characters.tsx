@@ -4,6 +4,7 @@ import Spinner from '../../Layout/Spinner/Spinner';
 import {CardList} from './Card';
 import { usePagination } from '../Pagination/usePagintain';
 import { Button } from 'react-bootstrap';
+import { fetchCharacters } from '../../service/FetchCharacters';
 
 const Characters:FC = () => {
     const [value,setValue] = useState<Array<any>>([]);
@@ -23,11 +24,9 @@ const Characters:FC = () => {
         count: value.length,
       });
 
-    const fetchChar =  () => {
-        setLoading(true)
-        fetch(`https://breakingbadapi.com/api/characters`)
-        .then((response) => response.json())
-        .then((data) => setValue(data))
+    const fetchChar =  async () : Promise<void> => {
+        setLoading(true)  
+        setValue(await fetchCharacters())
     }
     useEffect(() => {
         fetchChar()
@@ -39,7 +38,7 @@ const Characters:FC = () => {
                 
                 {value.length ? (value
                     .slice(firstContentIndex, lastContentIndex)
-                    .map((movie) => <CardList key={movie.id} {...movie} />)
+                    .map((characters) => <CardList key={characters.id} {...characters} />)
 
                 ) : (
                     <Spinner />

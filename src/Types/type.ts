@@ -26,6 +26,7 @@ export default interface InterfaceProps {
 }
 
 export default interface InterfaceQuoteProps{
+    quote_id : number,
     quote : string,
     author : string,
     series : string

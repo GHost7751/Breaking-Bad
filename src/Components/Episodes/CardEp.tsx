@@ -3,7 +3,7 @@ import CardPropsEp from '../../Types/type';
 import {Card} from 'react-bootstrap'
 
 const CardEp : React.FC<CardPropsEp> = (props) => {
-const { episode_id : id,
+const { episode_id,
     title,
     season,
     air_date,
@@ -14,7 +14,7 @@ const { episode_id : id,
     const actor = characters.slice(0,7);
  
     return (
-        <Card key={id} style={{ width: '18rem' , height: '330px' }}>
+        <Card key={episode_id} style={{ width: '18rem' , height: '330px' }}>
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">Season : {season}</Card.Subtitle>

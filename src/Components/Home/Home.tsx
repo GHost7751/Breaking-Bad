@@ -1,7 +1,7 @@
 import React from 'react';
 import {Carousel } from 'react-bootstrap'
 
-const Home = () => {
+const Home:React.FC = () => {
     return (
         <Carousel fade>
             <Carousel.Item>

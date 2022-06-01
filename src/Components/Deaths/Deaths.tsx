@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import Spinner from '../../Layout/Spinner/Spinner';
 import { usePagination } from '../Pagination/usePagintain';
 import { DeathsCard } from './DeathsCard';
+import { fetchDeaths } from '../../service/FetchDeaths';
 
 const Deaths:FC = () => {
     const [value,setValue] = useState<Array<any>>([]);
@@ -22,15 +23,14 @@ const Deaths:FC = () => {
         count: value.length,
       });
 
-      const fetchDeaths = () : void => {
+      const fetch = async () : Promise<void> => {
         setLoading(true)
-        fetch(`https://breakingbadapi.com/api/deaths`)
-        .then((response) => response.json())
-        .then((data) => setValue(data))
+        setValue(await fetchDeaths())
+        
       }
 
       useEffect(() => {
-          fetchDeaths()
+                fetch()
       },[])
 
     return (

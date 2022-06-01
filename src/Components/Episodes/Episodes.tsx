@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import {CardEp} from './CardEp';
 import Spinner from '../../Layout/Spinner/Spinner';
 import { usePagination } from '../Pagination/usePagintain';
 import { Button } from 'react-bootstrap';
+import { fetchEpisodes } from '../../service/FetchEpisodes';
 
-const Characters = () => {
+const Characters:FC = () => {
     const [value,setValue] = useState<Array<any>>([]);
     const [loading,setLoading] = useState<boolean>(false);
 
@@ -21,23 +22,23 @@ const Characters = () => {
         count: value.length,
       });
 
-    const fetchChar = () => {
+    const fetchChar = async () : Promise<void> => {
         setLoading(true)
-        fetch(`https://breakingbadapi.com/api/episodes`)
-        .then((response) => response.json())
-        .then((data) => setValue(data))
+        setValue(await fetchEpisodes())
     }
+
+
     useEffect(() => {
         fetchChar()
     },[])
-    
+    console.log(value)
     return (
         <div className='container content'>
             <br />
             <div className='movies'>
                 {value.length ? (value
                     .slice(firstContentIndex, lastContentIndex)
-                    .map((movie) => <CardEp key={movie.id} {...movie} />)
+                    .map((episodes) => <CardEp key={episodes.id} {...episodes} />)
 
                 ) : (
                     <Spinner />
